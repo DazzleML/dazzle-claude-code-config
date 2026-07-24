@@ -1,6 +1,6 @@
 # Claude Code Session Instructions
 
-> **About this file**: a curated public variant of a working global CLAUDE.md — the "orchestrator" that tells Claude Code how your tools, conventions, and territories fit together. Sections marked **[FILL IN]** are invitations: replace the examples with *your* machines, layouts, and integrations. Everything else works as-is alongside the skills/commands/agents in this collection.
+> **About this file**: a curated public variant of a working global CLAUDE.md — the "orchestrator" that tells Claude Code how your tools, conventions, and territories fit together. Your personal details live in imported files under `~/claude/claude-config/` (seeded with templates on first apply) -- this file itself never needs editing, so upstream updates always merge cleanly. Everything here works as-is alongside the skills/commands/agents in this collection.
 
 ## Cognitive Frameworks Used
 
@@ -103,22 +103,15 @@ When exiting plan mode with an approved plan, save a copy to `./private/claude/Y
 - Use `--body-file` for issue comments (shell escaping mangles complex markdown); keep drafts in `private/claude/issues/`.
 - Prefer a full-context issue reader (e.g. `scripts/gh_issue_full.py N --full`, or `scripts/repokit-common/...` per repo layout) over `gh issue view` — comments and timeline are where the context lives.
 
-## [FILL IN] Your Development Environment
+## Your Environment, Projects, and Integrations (imported)
 
-> Describe your machines and layout so Claude works with your reality. Example shape:
+The three sections below live in YOUR files under `~/claude/claude-config/` -- edit those, never this file. That way this orchestrator stays byte-identical to the upstream collection (updates pull cleanly, no merge conflicts), while your machines, layouts, and rules live in user territory where no sync or upgrade will ever touch them. Starter templates are seeded on first apply.
 
-- **OS / machines**: e.g. "Windows 11 desktop (primary dev), Linux VPS (services), MacBook (mobile)"
-- **Primary code location**: e.g. `~/code/` — all projects live here (set `CLAUDE_CODE_ROOTS` for the cross-project skills)
-- **Shared/network tooling**: e.g. a network drive or dotfiles repo mounted consistently across machines
-- **Anything Claude should never touch**: production paths, mounted shares, etc.
+@~/claude/claude-config/environment.md
 
-## [FILL IN] Your Project Inventory
+@~/claude/claude-config/projects.md
 
-> A short table of active projects and one-line purposes helps Claude orient instantly. Keep it current — it's the map `/wherearewe` supplements.
-
-## [FILL IN] Your Task-Management Integration
-
-> If you use an external task system (Todoist, Linear, Jira...), state the rules Claude must respect — especially which fields/labels Claude may NEVER set without explicit instruction (priorities and planning horizons are the classic trap: only you know what belongs in "this week's plan").
+@~/claude/claude-config/task-rules.md
 
 ## important-instruction-reminders
 

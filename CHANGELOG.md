@@ -4,6 +4,15 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-07-24
+
+### Changed
+- **The orchestrator now uses memory imports**: the [FILL IN] sections became `@~/claude/claude-config/*.md` imports -- your personal content lives in seeded, user-owned files, so the shared CLAUDE.md never needs editing and upstream updates always merge cleanly
+- Cross-platform hook installer: `python scripts/install-hooks.py` (the `.sh` remains for POSIX shells)
+
+### Added
+- `userclaude/claude-config/` seed templates (environment, projects, task-rules) + manifest `userclaude` territory with seed-if-absent entries
+
 ## [0.4.0] - 2026-07-24
 
 ### Added
@@ -40,7 +49,8 @@ All notable changes to the public Claude Code config collection. Format follows 
 - First curated seed: 5 skills (`dev-workflow-process`, `double-check`, `test-checklist`, `familiarize`, `oracle`), 8 commands (postmortem family, `commit`, `prepcommit`, `version-bump`), 4 agents (`oracle`, `brainstorm`, `senior-engineer`, `tester`)
 - Working `ccs-manifest.json`, README, GPL-3.0-or-later license
 
-[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.4.0
 [0.3.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.3.0
 [0.2.0]: https://github.com/DazzleML/dazzle-claude-code-config/commits/861837b

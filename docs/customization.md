@@ -27,13 +27,13 @@ Everything in this collection that expects *your* values, in one place. Work top
 
 ## Files to personalize
 
-- **`dotclaude/CLAUDE.md`** — the orchestrator. The three **[FILL IN]** sections (your environment, your project inventory, your task-management rules) are where your machines and layout go. Applied `seed-if-absent`: ccs will never overwrite an existing CLAUDE.md.
+- **`~/claude/claude-config/*.md`** — your environment, project inventory, and task rules. The orchestrating `dotclaude/CLAUDE.md` **imports** these via `@~/claude/claude-config/...` memory imports, so you edit YOUR files and never the shared one — upstream updates always merge cleanly. Templates are seeded on first apply (never overwritten). The CLAUDE.md itself is applied `seed-if-absent` too.
 - **`~/.claude/settings.local.json`** — machine-local settings, seeded from `settings-example/settings.local.seed.json`, never synced.
 - **`dotclaude/commands/obsidian.md`** — the example topic folders/tags are one project's; adapt to your subjects.
 
 ## Installs (one-time per machine)
 
-1. Hooks for this repo's own guards (if you fork): `sh scripts/install-hooks.sh`
+1. Hooks for this repo's own guards (if you fork): `python scripts/install-hooks.py` (any OS; `sh scripts/install-hooks.sh` on POSIX)
 2. The tester-unbounded guard: copy `dotclaude/hooks/tester-unbounded-guard.py` to `~/.claude/hooks/` — **Windows**: put the absolute path in the agent frontmatter (`~` may not expand in the hook shell)
 3. Plugin marketplaces (optional): `claude plugin marketplace add` for the entries in `settings-example/plugins.json`
 4. Ecosystem tools the docs reference (all optional): [dazzlecmd](https://github.com/DazzleTools/dazzlecmd) (`dz safedel`, `dz private-init`), [git-repokit-common](https://github.com/DazzleTools/git-repokit-common) (ships as `scripts/repokit-common/` in this repo)

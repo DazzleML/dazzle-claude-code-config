@@ -5,6 +5,10 @@
     "dotclaude": {
       "root_var": "CLAUDE_DIR",
       "repo_dir": "dotclaude"
+    },
+    "userclaude": {
+      "root_var": "USER_CLAUDE",
+      "repo_dir": "userclaude"
     }
   },
   "entries": [
@@ -48,6 +52,24 @@
       "repo": "dotclaude/plugins-settings/session-logger.json",
       "territory": "dotclaude",
       "target": "plugins/settings/session-logger.json",
+      "strategy": "seed-if-absent"
+    },
+    {
+      "repo": "userclaude/claude-config/environment.md",
+      "territory": "userclaude",
+      "target": "claude-config/environment.md",
+      "strategy": "seed-if-absent"
+    },
+    {
+      "repo": "userclaude/claude-config/projects.md",
+      "territory": "userclaude",
+      "target": "claude-config/projects.md",
+      "strategy": "seed-if-absent"
+    },
+    {
+      "repo": "userclaude/claude-config/task-rules.md",
+      "territory": "userclaude",
+      "target": "claude-config/task-rules.md",
       "strategy": "seed-if-absent"
     }
   ],

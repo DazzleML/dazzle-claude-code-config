@@ -10,7 +10,7 @@ A curated, working set of **Claude Code** skills, commands, and agents from the 
 
 | Set | Items |
 |---|---|
-| **The orchestrator** | `dotclaude/CLAUDE.md` — a curated global memory file with **[FILL IN]** invitation sections for your machines/layout/integrations; applied `seed-if-absent` (never overwrites yours) |
+| **The orchestrator** | `dotclaude/CLAUDE.md` — a curated global memory file that **imports your personal sections** (`@~/claude/claude-config/*.md`, seeded with templates) -- you never edit the shared file, so upstream updates merge cleanly; applied `seed-if-absent` |
 | **Skills** (14) | Orient: `familiarize`, `wherearewe`; Design: `dev-workflow-process`, `collabN-local`, `oracle`, `investigate`; Restructure: `merge-3-way-split`, `move-code`; Verify: `test-checklist`, `double-check`; Reflect: `whereweare`; Project setup: `create-project`, `github-issues-setup`, `repokit-setup` |
 | **Commands** (28) | Postmortem family (`postmortem`, `fullpostmortem`, `fullpostmortem-lean`, `minipostmortem`, `contextpostmortem`, `addendum`); git/release (`commit`, `prepcommit`, `version-bump`, `bump-merge-release`, `bump-merge-rel-submod`, `github-release`, `github-release-notes`, `repokit-post`); GitHub (`github-issue`, `github-acceptance-check`); consultation (`collaborate1/2/3`); research (`ask`, `askq`, `longask`, `quick-ask`, `analysis`); capture (`obsidian`, `docidea`); utilities (`check-deps`, `cleanup-priv-claude`) |
 | **Agents** (11) | `oracle`, `brainstorm`, `senior-engineer`, `tester`, `tester-unbounded`, `dwp-background`, `investigate`, `help`, `code-finder`, `project-manager-backlog`, `gpt-codex` |
@@ -37,9 +37,9 @@ git clone https://github.com/DazzleML/dazzle-claude-code-config ~/claude/dazzle-
 ccs apply --checkout-dir ~/claude/dazzle-claude-code-config-public
 ```
 
-**By hand**: copy what you want from `dotclaude/` into your `~/.claude/` (skills into `skills/`, commands into `commands/`, agents into `agents/`, hooks into `hooks/`, scripts into `scripts/`).
+**By hand**: copy what you want from `dotclaude/` into your `~/.claude/` (skills into `skills/`, commands into `commands/`, agents into `agents/`, hooks into `hooks/`, scripts into `scripts/`) — and `userclaude/claude-config/` into `~/claude/claude-config/` so the CLAUDE.md imports resolve.
 
-**Then make it yours**: **[docs/customization.md](docs/customization.md)** is the one-page checklist of every directory, environment variable, placeholder, and [FILL IN] section that expects your values — including the orchestrating `dotclaude/CLAUDE.md` (seeded only if you don't already have one).
+**Then make it yours**: **[docs/customization.md](docs/customization.md)** is the one-page checklist of every directory, environment variable, placeholder, and imported personal file that expects your values — including `~/claude/claude-config/` (the files the orchestrating CLAUDE.md imports; seeded with templates, never overwritten).
 
 ## Notes for strangers
 

@@ -1,0 +1,12 @@
+{
+  "_comment": "Post-#45-fix config (2026-05-13). Swapped back to .convo_ after verifying file_prefix rename works. Keeps the Phase 6 partial-override form: convo gets only suppress_markers (no file_prefix needed since the shipped default is what we want). Subtype routing for meta + bash kept active. Fileio stays at shipped enabled=false.",
+  "routing": {
+    "channels": {
+      "convo": { "options": { "suppress_markers": true } }
+    },
+    "subtype_routing": {
+      "meta": true,
+      "bash": true
+    }
+  }
+}

@@ -4,6 +4,20 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-24
+
+### Added
+- **The orchestrator**: `dotclaude/CLAUDE.md` public variant with [FILL IN] invitation sections (applied `seed-if-absent`)
+- Wave 3 (all remaining skills): `wherearewe` + `whereweare` (now with configurable `CLAUDE_CODE_ROOTS`), `investigate` (skill + agent), `move-code`, `create-project`, `github-issues-setup`, `repokit-setup`
+- Batch 3 commands: `github-release`, `github-release-notes`, `ask`/`askq`/`longask`/`quick-ask` (+ async scripts), `bump-merge-release`, `bump-merge-rel-submod`, `repokit-post`, `fullpostmortem-lean`, `check-deps`, `cleanup-priv-claude`
+- Batch 3 agents: `help`, `code-finder`, `project-manager-backlog`, `gpt-codex`
+- `plugins-settings/session-logger.json` (seed-if-absent), `docs/customization.md` (the make-it-yours checklist), `docs/project-structure.md` additions (graduation path, task tracking)
+- Manifest entries: `scripts`, `plugins-settings`, `CLAUDE.md`
+
+### Changed
+- Pre-push guard redesigned: generic patterns ship in-repo; personal marker lists load from an untracked local file (the mechanism travels with forks, the maintainer's list never does)
+- README/workflow/folder docs updated to the full inventory (14 skills / 28 commands / 11 agents)
+
 ## [0.3.0] - 2026-07-24
 
 ### Added
@@ -26,7 +40,8 @@ All notable changes to the public Claude Code config collection. Format follows 
 - First curated seed: 5 skills (`dev-workflow-process`, `double-check`, `test-checklist`, `familiarize`, `oracle`), 8 commands (postmortem family, `commit`, `prepcommit`, `version-bump`), 4 agents (`oracle`, `brainstorm`, `senior-engineer`, `tester`)
 - Working `ccs-manifest.json`, README, GPL-3.0-or-later license
 
-[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.4.0
 [0.3.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.3.0
 [0.2.0]: https://github.com/DazzleML/dazzle-claude-code-config/commits/861837b
 [0.1.0]: https://github.com/DazzleML/dazzle-claude-code-config/commits/bdd9481

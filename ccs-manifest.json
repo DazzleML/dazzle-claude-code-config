@@ -9,6 +9,12 @@
   },
   "entries": [
     {
+      "repo": "dotclaude/CLAUDE.md",
+      "territory": "dotclaude",
+      "target": "CLAUDE.md",
+      "strategy": "seed-if-absent"
+    },
+    {
       "repo": "dotclaude/skills",
       "territory": "dotclaude",
       "target": "skills",
@@ -31,6 +37,18 @@
       "territory": "dotclaude",
       "target": "hooks",
       "strategy": "copy"
+    },
+    {
+      "repo": "dotclaude/scripts",
+      "territory": "dotclaude",
+      "target": "scripts",
+      "strategy": "copy"
+    },
+    {
+      "repo": "dotclaude/plugins-settings/session-logger.json",
+      "territory": "dotclaude",
+      "target": "plugins/settings/session-logger.json",
+      "strategy": "seed-if-absent"
     }
   ],
   "collect_exclude": [

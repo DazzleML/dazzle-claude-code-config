@@ -19,16 +19,16 @@ flowchart LR
 
 ## 1. Orient
 
-Start a work session by rebuilding context: **`/familiarize`** (session-start context rebuild), or when returning to a project cold, `/wherearewe` (inbound context recovery — finds the snapshots, postmortems, and issues that explain "what's going on here"; later wave). For a series of assessment questions, **`/analysis`** applies estimative language (CIA WEP vocabulary) so conclusions carry calibrated confidence. For one-off questions, ask the **`help`**-style research pattern (the `/ask` family ships in a later wave).
+Start a work session by rebuilding context: **`/familiarize`** (session-start context rebuild), or when returning to a project cold, `/wherearewe` (inbound context recovery — finds the snapshots, postmortems, and issues that explain "what's going on here"). For a series of assessment questions, **`/analysis`** applies estimative language (CIA WEP vocabulary) so conclusions carry calibrated confidence. For one-off questions, ask the **`help`**-style research pattern (the `/ask` family).
 
 ## 2. Design
 
 With context in hand, attack the problem with **`/dev-workflow-process`** — the structured Story → Puzzle → Content → Result analysis that writes its reasoning to a durable doc. For particularly tricky designs, escalate to the consultation family: **`/collabN-local`** (N rounds with the repo-aware **`brainstorm`** agent — no external APIs) or **`/collaborate1/2/3`** (external-model consultation via Zen MCP). During design: the **`oracle`** agent traces prior decisions through your notes vault; **`brainstorm`** reads real code as a sparring partner; **`senior-engineer`** analyzes code when you just need expertise; **`dwp-background`** runs a context-free analysis in the background.
 
 Branches out of design:
-- **New project** → `/create-project` + `/github-issues-setup` (later wave)
+- **New project** → `/create-project` + `/github-issues-setup`
 - **Trackable unit of work** → **`/github-issue`** (template + quality checklist)
-- **Refactor** → `/move-code` (copy-don't-rewrite migration) and **`/merge-3-way-split`** (pre-merge collision review) — the former ships in a later wave
+- **Refactor** → **`/move-code`** (copy-don't-rewrite migration) and **`/merge-3-way-split`** (pre-merge collision review)
 - **Continuously**: capture progress with **`/addendum`** (append to the active design doc), **`/obsidian`** (vault notes), or **`/docidea`** (lightweight idea capture)
 
 ## 3. Verify
@@ -37,7 +37,7 @@ Once code exists: **`/test-checklist`** produces the human-runnable checklist th
 
 ## 4. Gate, 5. Commit, 6. Ship
 
-**`/github-acceptance-check`** compares the issue's acceptance criteria against what was actually built. **`/prepcommit`** handles version bump + docs + staging; **`/version-bump`** encodes the versioning philosophy. Then **`/commit`** — the structured diff-review → message → sign-off → commit ceremony (never auto-committed). When releasing: annotated git tag, then `/github-release` (later wave).
+**`/github-acceptance-check`** compares the issue's acceptance criteria against what was actually built. **`/prepcommit`** handles version bump + docs + staging; **`/version-bump`** encodes the versioning philosophy. Then **`/commit`** — the structured diff-review → message → sign-off → commit ceremony (never auto-committed). When releasing: annotated git tag, then **`/github-release`**.
 
 ## Cross-cutting: `/double-check`
 
@@ -45,7 +45,7 @@ Once code exists: **`/test-checklist`** produces the human-runnable checklist th
 
 ## 7. Reflect
 
-Close a unit of work with the postmortem family: **`/fullpostmortem`** (completed work), **`/minipostmortem`** (mid-debugging state capture), **`/contextpostmortem`** (session handoff), or **`/postmortem`** (auto-selects). Its forward-looking companion `/whereweare` (later wave) writes the resume-work-after-time-away snapshot: what was done, what's next, key files, open issues. Together they write the durable record that the next session's `/wherearewe` + `/familiarize` read — closing the loop.
+Close a unit of work with the postmortem family: **`/fullpostmortem`** (completed work), **`/minipostmortem`** (mid-debugging state capture), **`/contextpostmortem`** (session handoff), or **`/postmortem`** (auto-selects). Its forward-looking companion **`/whereweare`** writes the resume-work-after-time-away snapshot: what was done, what's next, key files, open issues. Together they write the durable record that the next session's `/wherearewe` + `/familiarize` read — closing the loop.
 
 ## The librarian pattern (advanced)
 

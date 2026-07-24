@@ -1,6 +1,6 @@
 # dazzle-claude-code-config (public base)
 
-[![Version](https://img.shields.io/github/v/release/DazzleML/dazzle-claude-code-config?include_prereleases&label=version&color=blue)](https://github.com/DazzleML/dazzle-claude-code-config/releases) [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0--or--later-green)](LICENSE) [![Changelog](https://img.shields.io/badge/changelog-keep--a--changelog-orange)](CHANGELOG.md) [![Claude Code](https://img.shields.io/badge/for-Claude%20Code-blueviolet)](https://code.claude.com)
+[![Version](https://img.shields.io/github/v/release/DazzleML/dazzle-claude-code-config?include_prereleases&label=version&color=blue)](https://github.com/DazzleML/dazzle-claude-code-config/releases) [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0--or--later-green)](LICENSE) [![Changelog](https://img.shields.io/badge/changelog-keep--a--changelog-orange)](CHANGELOG.md) [![Claude Code](https://img.shields.io/badge/for-Claude%20Code-blueviolet)](https://code.claude.com) [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20BSD-lightgrey.svg)](docs/platforms.md)
 
 A curated, working set of **Claude Code** skills, commands, and agents from the DazzleML toolchain — usable directly as a [ccs](https://github.com/DazzleML/dazzle-claude-config) payload repo, or as a grab-bag you copy from by hand.
 
@@ -76,6 +76,21 @@ These are **examples, not applied by `ccs apply`** (ccs `render` support ships l
 - [claude-session-logger](https://github.com/DazzleML/claude-session-logger) — real-time session logging (Claude Code plugin)
 - [Claude-Session-Backup](https://github.com/DazzleML/Claude-Session-Backup) — local session preservation (`csb`)
 
+## Contributing
+
+Contributions welcome! Please open an issue or submit a pull request.
+
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for:
+- Ground rules for a config collection (no personal content; cross-platform conventions; graceful degradation)
+- The guard hooks (`python scripts/install-hooks.py`) and VERSION/CHANGELOG lockstep
+- The PR workflow and folder-README updates for new payload entries
+
+Like the project?
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/djdarcy)
+
 ## License
 
-[GPL-3.0-or-later](LICENSE).
+dazzle-claude-code-config, Copyright (C) 2026 Dustin Darcy
+
+Licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html) (GPL-3.0) -- see [LICENSE](LICENSE)

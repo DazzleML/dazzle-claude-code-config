@@ -27,7 +27,7 @@ ccs apply --checkout-dir ~/claude/dazzle-claude-code-config-public
 
 ## Notes for strangers
 
-- **This is a curated subset.** Some files cross-reference components not (yet) published here — e.g. `/analysis`, `/collabN-local`, the `whereweare` skills, session-log conventions. Those references degrade gracefully; more waves are planned.
+- **This is a curated subset.** Some files cross-reference components not (yet) published here — e.g. the `whereweare`/`wherearewe` skills, the `/obsidian` and `/ask` families, session-log conventions, and the `task-manager`-based `t-*` commands. Those references degrade gracefully; more waves are planned.
 - **Ecosystem prerequisites are optional.** Some commands mention `dz` ([dazzlecmd](https://github.com/DazzleTools/dazzlecmd)) and repokit scripts ([git-repokit-common](https://github.com/DazzleTools/git-repokit-common)) — public projects, not required for the core skills to work.
 - These files encode one team's working conventions (e.g. a `private/claude/` project-notes directory). Adopt or adapt freely — that's what the license is for.
 

@@ -2,12 +2,36 @@
   "manifest_version": 1,
   "description": "Public base payload: curated Claude Code skills/commands/agents. Works standalone with ccs, or as the base layer under a private overlay.",
   "territories": {
-    "dotclaude": { "root_var": "CLAUDE_DIR", "repo_dir": "dotclaude" }
+    "dotclaude": {
+      "root_var": "CLAUDE_DIR",
+      "repo_dir": "dotclaude"
+    }
   },
   "entries": [
-    { "repo": "dotclaude/skills", "territory": "dotclaude", "target": "skills", "strategy": "copy" },
-    { "repo": "dotclaude/commands", "territory": "dotclaude", "target": "commands", "strategy": "copy" },
-    { "repo": "dotclaude/agents", "territory": "dotclaude", "target": "agents", "strategy": "copy" }
+    {
+      "repo": "dotclaude/skills",
+      "territory": "dotclaude",
+      "target": "skills",
+      "strategy": "copy"
+    },
+    {
+      "repo": "dotclaude/commands",
+      "territory": "dotclaude",
+      "target": "commands",
+      "strategy": "copy"
+    },
+    {
+      "repo": "dotclaude/agents",
+      "territory": "dotclaude",
+      "target": "agents",
+      "strategy": "copy"
+    },
+    {
+      "repo": "dotclaude/hooks",
+      "territory": "dotclaude",
+      "target": "hooks",
+      "strategy": "copy"
+    }
   ],
   "collect_exclude": [
     "**/__pycache__/**",

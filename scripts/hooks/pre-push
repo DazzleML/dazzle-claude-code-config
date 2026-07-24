@@ -1,0 +1,42 @@
+#!/bin/bash
+# Pre-push guard for a public config repo: blocks pushes whose outgoing trees
+# contain personal-path markers or credential-shaped content.
+#
+# The GENERIC pattern ships with the repo. Your PERSONAL marker list (names,
+# hostnames, project codenames -- things that would themselves leak if listed
+# here) lives OUTSIDE the repo in an untracked file, one extended-regex per
+# line (lines are OR-joined; # comments and blanks ignored):
+#     ~/claude/private/push-guard-markers.re
+# or point PUSH_GUARD_MARKERS at another path. Forks inherit the mechanism,
+# never the maintainer's list. Override for verified false positives:
+#     git push --no-verify
+GENERIC_RE='C:\\\\[Uu]sers|C:/[Uu]sers|/home/[a-z][a-z0-9]*/'
+SECRET_RE='sk-ant-[A-Za-z0-9_-]{10,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|xox[bpoas]-[A-Za-z0-9-]{10,}|-----BEGIN [A-Z ]*PRIVATE KEY-----'
+ZERO_RE='^0+$'
+
+MARKER_FILE="${PUSH_GUARD_MARKERS:-$HOME/claude/private/push-guard-markers.re}"
+MARKER_RE="$GENERIC_RE"
+if [ -r "$MARKER_FILE" ]; then
+    PERSONAL=$(grep -vE '^[[:space:]]*(#|$)' "$MARKER_FILE" | paste -sd'|' -)
+    [ -n "$PERSONAL" ] && MARKER_RE="$GENERIC_RE|$PERSONAL"
+fi
+
+REFS=$(cat)
+[ -z "$REFS" ] && exit 0
+while IFS= read -r line; do
+    [ -z "$line" ] && continue
+    lsha=$(echo "$line" | awk '{print $2}')
+    echo "$lsha" | grep -qE "$ZERO_RE" && continue
+    for f in $(git ls-tree -r --name-only "$lsha"); do
+        # Self-exclusion: this hook legitimately contains the generic patterns.
+        case "$f" in scripts/hooks/pre-push) continue ;; esac
+        HITS=$(git show "$lsha:$f" 2>/dev/null | grep -nE "$MARKER_RE|$SECRET_RE" | head -3)
+        if [ -n "$HITS" ]; then
+            echo "PUSH BLOCKED - marker or credential shape in: $f" >&2
+            echo "$HITS" | sed 's/^/    /' >&2
+            echo "Scrub it, or --no-verify for a verified false positive." >&2
+            exit 1
+        fi
+    done
+done <<< "$REFS"
+exit 0

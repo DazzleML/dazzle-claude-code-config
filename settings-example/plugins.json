@@ -1,0 +1,11 @@
+{
+  "marketplaces": [
+    { "name": "dazzle-claude-plugins", "source": "DazzleML/claude-session-logger" },
+    { "name": "dazzle-claude-session-backup", "source": "DazzleML/Claude-Session-Backup" }
+  ],
+  "plugins": [
+    "session-logger@dazzle-claude-plugins",
+    "claude-session-backup@dazzle-claude-session-backup",
+    "rust-analyzer-lsp@claude-plugins-official"
+  ]
+}

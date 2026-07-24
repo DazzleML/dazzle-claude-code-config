@@ -1,0 +1,19 @@
+#!/bin/sh
+# Pre-commit: keep VERSION and CHANGELOG.md in lockstep.
+# If VERSION is staged with a new value, the same version must appear as a
+# "## [x.y.z]" heading in the staged CHANGELOG.md. Install via
+# scripts/install-hooks.sh.
+
+if git diff --cached --name-only | grep -qx "VERSION"; then
+    ver=$(git show :VERSION 2>/dev/null | tr -d ' \r\n')
+    if [ -z "$ver" ]; then
+        echo "COMMIT BLOCKED: staged VERSION file is empty" >&2
+        exit 1
+    fi
+    if ! git show :CHANGELOG.md 2>/dev/null | grep -q "^## \[$ver\]"; then
+        echo "COMMIT BLOCKED: VERSION is $ver but staged CHANGELOG.md has no '## [$ver]' entry" >&2
+        echo "Add the changelog entry (or stage CHANGELOG.md) before bumping VERSION." >&2
+        exit 1
+    fi
+fi
+exit 0

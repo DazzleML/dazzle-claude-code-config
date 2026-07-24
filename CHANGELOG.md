@@ -1,8 +1,13 @@
 # Changelog
 
-All notable changes to the public Claude Code config collection. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are semantic (MAJOR: breaking layout/convention changes, MINOR: new assets or docs, PATCH: fixes/scrubs).
+All notable changes to the public Claude Code config collection. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are semantic (MAJOR: breaking layout/convention changes; MINOR: new payload assets -- skills/commands/agents/templates a consumer applies; PATCH: docs, fixes, scrubs).
 
 ## [Unreleased]
+
+## [0.4.3] - 2026-07-24
+
+### Added
+- README Install quickstart (5 steps, above the inventory) and `docs/setup.md` — the exhaustive setup walk: Claude Code install, fork-vs-consume, ccs apply, personalization, companion plugins (session-logger + csb), hooks, verification, multi-machine rollout, troubleshooting
 
 ## [0.4.2] - 2026-07-24
 
@@ -54,7 +59,8 @@ All notable changes to the public Claude Code config collection. Format follows 
 - First curated seed: 5 skills (`dev-workflow-process`, `double-check`, `test-checklist`, `familiarize`, `oracle`), 8 commands (postmortem family, `commit`, `prepcommit`, `version-bump`), 4 agents (`oracle`, `brainstorm`, `senior-engineer`, `tester`)
 - Working `ccs-manifest.json`, README, GPL-3.0-or-later license
 
-[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.2...HEAD
+[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.3...HEAD
+[0.4.3]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.4.0

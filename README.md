@@ -6,6 +6,18 @@ A curated, working set of **Claude Code** skills, commands, and agents from the 
 
 **The big idea**: configuration sets should be as easy to share, load in, and swap out as tools are in [dazzlecmd](https://github.com/DazzleTools/dazzlecmd) — fork a set, point ccs at it, layer your own private overlay on top, swap sources at will. This repo is the first public set.
 
+## Install (quickstart)
+
+1. Have [Claude Code](https://code.claude.com/docs/en/quickstart), git, and Python 3.10+
+2. `pip install dazzle-claude-config` (the [ccs](https://github.com/DazzleML/dazzle-claude-config) sync tool)
+3. Fork this repo (or clone it directly), then:
+   ```bash
+   git clone <your-fork-or-this-repo> ~/claude/dazzle-claude-code-config-public
+   ccs apply --checkout-dir ~/claude/dazzle-claude-code-config-public
+   ```
+4. Personalize: edit the seeded `~/claude/claude-config/*.md` (your environment/projects/rules -- the CLAUDE.md imports them) and set `CLAUDE_CODE_ROOTS`
+5. Optional companions (session logging, git-backed backup) and settings templates: **[docs/setup.md](docs/setup.md)** is the exhaustive walk; **[docs/customization.md](docs/customization.md)** is the checklist
+
 ## What's here
 
 | Set | Items |

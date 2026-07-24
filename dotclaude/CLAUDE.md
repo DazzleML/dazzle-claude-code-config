@@ -37,8 +37,12 @@ When applying PUVM analysis, **always include 1-2 paragraphs about the intention
 ### Unicode / Codepage Issues in Generated Scripts
 **AVOID Unicode characters** (em dashes, smart quotes, arrows, checkmarks) in `.ps1`, `.cmd`, `.bat` files or any code executing in a Windows `cmd` shell — cmd.exe defaults to codepage 437, PowerShell 5.1 to 1252; neither handles UTF-8 by default. Use `--` not em-dash, `->` not arrows, `[OK]`/`[X]` not checkmarks. If Unicode output is needed, emit it from Python.
 
-### Null Device Redirection (WSL/Git Bash on Windows)
-`>nul` in bash creates a literal file named `nul`. Always use `>/dev/null`. If a `nul` file gets created, plain `del`/`rm` cannot remove it -- use Python `os.remove()` with the `\\\\.\\` device-path prefix.
+### Null Device Redirection (Windows cmd vs bash)
+Each shell has its own null device, and mixing them is the bug:
+- **cmd.exe / batch**: the null device is `NUL` -- `command >NUL 2>&1` is correct *there* (and only there).
+- **bash / WSL / Git Bash**: the null device is `/dev/null`. In bash, `>nul` (any case) is NOT a device -- it creates a **literal file named `nul`** that then shows up in `git status` and resists deletion.
+- The failure mode is muscle memory: DOS-style `>NUL` pasted into a bash context. Rule: in anything bash-flavored, always `>/dev/null`.
+- Cleanup if a `nul` file appears: plain `del`/`rm` cannot remove it -- use Python `os.remove()` with a device-path prefix (e.g. `os.remove('\\\\?\\C:\\path\\to\\nul')`).
 
 ### Windows Junctions/Symlinks
 Always use PowerShell (`New-Item -ItemType Junction ...`) — `cmd.exe /c mklink` invoked from bash fails silently. Junctions don't require elevation; symlinks do (unless Developer Mode).
@@ -62,7 +66,7 @@ Before any deletion: explicit user confirmation, a verified backup or recovery p
 When available, use a trash-staging deleter (e.g. `dz safedel` from dazzlecmd — link-aware, metadata-preserving, 30-day recovery) over `rm`/`del`/`Remove-Item`, especially for `rm -rf`-class operations and directories with unknown contents. Never run the trash store's clean/purge command -- emptying recovery stores is a human-only action.
 
 ### 2. Back Up Before Git Operations That Can Destroy Work
-Never run working-tree-destroying git commands (`reset --hard`, `checkout --`/`restore`, `clean -fd`, `stash drop`) without first `git stash` (or a manual backup) and a `git status` check. Config files often contain secrets that are NOT in git — losing them can be catastrophic. Assume any local work is important.
+Never run working-tree-destroying git commands (`reset --hard`, `checkout --`/`restore`, `clean -fd`, `stash drop`) without a checkpoint first: prefer `dz git-snapshot save` (dazzlecmd's named working-state checkpoints) when available, else `git stash` or a manual backup -- plus a `git status` check. Config files often contain secrets that are NOT in git — losing them can be catastrophic. Assume any local work is important.
 
 ### 3. NEVER COMMIT OR PUSH WITHOUT EXPLICIT USER APPROVAL
 Complete a code review, wait for explicit approval, let the user initiate. Commits are a sign-off only the user can authorize. No exceptions.

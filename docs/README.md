@@ -3,8 +3,9 @@
 | Doc | What it covers |
 |---|---|
 | [workflow.md](workflow.md) | How the toolkit flows together — the orient → design → verify → gate → commit → ship → reflect lifecycle, the `/double-check` claim-verifier, and the two-session "librarian" pattern |
-| [project-structure.md](project-structure.md) | The repeatable project shape the skills assume — the `private/` vault (`dz private-init`), the repokit-common `scripts/` subtree, evergreen issues, and the creation process |
+| [project-structure.md](project-structure.md) | The repeatable project shape the skills assume — the `private/` vault (`dz private-init`), the repokit-common subtree, the dazzlecmd-first graduation path, task tracking, and the creation process |
+| [customization.md](customization.md) | The make-it-yours checklist — every directory, env var, placeholder, and imported personal file (`~/claude/claude-config/`) that expects your values, plus one-time installs |
 
 Per-folder member guides live beside the assets themselves: [skills](../dotclaude/skills/README.md) · [commands](../dotclaude/commands/README.md) · [agents](../dotclaude/agents/README.md).
 
-Planned: per-skill deep dives (worked examples of `/dev-workflow-process` and `/double-check` runs), a settings-adoption walkthrough, and `ccs bootstrap` onboarding docs once the renderer ships.
+Planned: per-skill deep dives (worked examples of `/dev-workflow-process` and `/double-check` runs), and `ccs bootstrap` guided-onboarding docs once the renderer ships (tracked in [dazzle-claude-config#6](https://github.com/DazzleML/dazzle-claude-config/issues/6)); [customization.md](customization.md) covers settings adoption by hand until then.

@@ -4,6 +4,11 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-07-24
+
+### Fixed
+- docs/README.md index: customization.md was missing; project-structure row and planned-docs note refreshed
+
 ## [0.4.1] - 2026-07-24
 
 ### Changed
@@ -49,7 +54,8 @@ All notable changes to the public Claude Code config collection. Format follows 
 - First curated seed: 5 skills (`dev-workflow-process`, `double-check`, `test-checklist`, `familiarize`, `oracle`), 8 commands (postmortem family, `commit`, `prepcommit`, `version-bump`), 4 agents (`oracle`, `brainstorm`, `senior-engineer`, `tester`)
 - Working `ccs-manifest.json`, README, GPL-3.0-or-later license
 
-[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.2...HEAD
+[0.4.2]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.4.0
 [0.3.0]: https://github.com/DazzleML/dazzle-claude-code-config/releases/tag/v0.3.0

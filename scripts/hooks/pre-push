@@ -29,8 +29,15 @@ while IFS= read -r line; do
     echo "$lsha" | grep -qE "$ZERO_RE" && continue
     for f in $(git ls-tree -r --name-only "$lsha"); do
         # Self-exclusion: this hook legitimately contains the generic patterns.
-        case "$f" in scripts/hooks/pre-push) continue ;; esac
-        HITS=$(git show "$lsha:$f" 2>/dev/null | grep -nE "$MARKER_RE|$SECRET_RE" | head -3)
+        # Vendored upstream subtrees get SECRET scanning only -- their own
+        # marker hygiene is upstream's responsibility (content is already
+        # public at its authoritative home).
+        case "$f" in
+            scripts/hooks/pre-push) continue ;;
+            scripts/repokit-common/*) PAT="$SECRET_RE" ;;
+            *) PAT="$MARKER_RE|$SECRET_RE" ;;
+        esac
+        HITS=$(git show "$lsha:$f" 2>/dev/null | grep -nE "$PAT" | head -3)
         if [ -n "$HITS" ]; then
             echo "PUSH BLOCKED - marker or credential shape in: $f" >&2
             echo "$HITS" | sed 's/^/    /' >&2

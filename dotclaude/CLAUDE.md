@@ -107,6 +107,34 @@ When exiting plan mode with an approved plan, save a copy to `./private/claude/Y
 - Use `--body-file` for issue comments (shell escaping mangles complex markdown); keep drafts in `private/claude/issues/`.
 - Prefer a full-context issue reader (e.g. `scripts/gh_issue_full.py N --full`, or `scripts/repokit-common/...` per repo layout) over `gh issue view` — comments and timeline are where the context lives.
 
+### Shorthand codes: where they belong, and the `Key:` footer
+
+Projects accumulate private vocabulary that is precise for maintainers and opaque to everyone else. It comes in three families, and all three need the same treatment:
+
+1. **Shorthand codes** — acceptance-check IDs (`A4`, `A8`), slice labels (`P-5`), decision IDs.
+2. **Project acronyms and tool nicknames** — `DWP`, `PUVM`, or whatever your tools are called. More dangerous than numbered codes, because an acronym looks like an ordinary word and a reader may not notice they have missed something.
+3. **Repurposed jargon** — ordinary words carrying project-specific meaning (*payload*, *territory*, *guard stack*). Easiest to miss, because nothing about them looks like shorthand.
+
+**The test:** would a competent engineer, new to this project and holding none of its private docs, know what this means? If it is coined-here or repurposed-here, it needs a key. **Exempt:** widely understood industry terms (CI, PR, API, JSON) — keying those is noise.
+
+Then split by audience:
+
+| Audience | Codes? |
+|---|---|
+| Commit messages, design docs, issues | **Yes** — they carry exact traceability |
+| Checklists shipped for external testers | Yes, **but** include a legend table defining every code used, so the document stands alone |
+| CHANGELOG, README, release notes, CLI output | **No** — spell the guarantee out plainly ("the check that collected files reach git's index"). A user cannot decode `A8` and cannot read the doc that defines it |
+
+When a commit body uses codes, end the message with a `Key:` block — **one entry per code, every time**, with the doc that defines it. Glossing a code inline ("the home-repo guard (A4)") is good practice but does not exempt it: the gloss is itself compressed, and still assumes the reader knows which guard, why it exists, and what it refuses.
+
+```
+Key:
+  A4 -- never operate on the home repo, nor bind to a parent repository
+        from a folder nested inside one -- <design-doc filename>
+```
+
+**Why the citation is mandatory:** codes recur across a project's life (there will be many `P-1`s). The defining-doc reference is what lets a future reader — often someone doing `git blame` archaeology years later, with no access to your private notes — work backwards to what the code meant. The explanation text may be as brief as you like; the citation is the part that is never optional.
+
 ## Your Environment, Projects, and Integrations (imported)
 
 The three sections below live in YOUR files under `~/claude/claude-config/` -- edit those, never this file. That way this orchestrator stays byte-identical to the upstream collection (updates pull cleanly, no merge conflicts), while your machines, layouts, and rules live in user territory where no sync or upgrade will ever touch them. Starter templates are seeded on first apply.

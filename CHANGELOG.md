@@ -4,6 +4,11 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.7] - 2026-07-25
+
+### Changed
+- `dotclaude/CLAUDE.md`: new "Shorthand codes: where they belong, and the `Key:` footer" section under Git & GitHub Conventions. Names the three families of private vocabulary a project accumulates (shorthand codes, acronyms and tool nicknames, repurposed jargon), gives one test for all of them, and splits by audience -- codes are fine in commits, design docs, and issues; checklists shipped to external testers need a legend table; CHANGELOG, README, release notes, and CLI output get plain language and no codes. Includes the `Key:` block format and why the defining-doc citation is mandatory even when a code is glossed inline
+
 ## [0.4.6] - 2026-07-24
 
 ### Changed

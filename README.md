@@ -28,7 +28,7 @@ A curated, working set of **Claude Code** skills, commands, and agents from the 
 | **Agents** (11) | `oracle`, `brainstorm`, `senior-engineer`, `tester`, `tester-unbounded`, `dwp-background`, `investigate`, `help`, `code-finder`, `project-manager-backlog`, `gpt-codex` |
 | **Hooks** (1) | `tester-unbounded-guard.py` — PreToolUse enforcement backing `tester-unbounded`; the agent **requires** it at `~/.claude/hooks/` (on Windows, put the absolute home path in the agent frontmatter, as `~` may not expand in the hook shell) |
 | **Scripts** | `dotclaude/scripts/` — async research helpers the `/ask` family invokes (installed by the manifest) |
-| **Settings templates** | `settings-example/` + `userclaude-example/` — see below |
+| **Settings templates** | `settings-example/` + `userclaude-example/` — including the **color-coded `ctx ##%` context statusline** (cyan → yellow at 85% → bold-red "wrap up or /compact" at 94%), arguably the best five-minute upgrade here — see below |
 
 **Conventions these files assume**: durable notes live in `~/claude/` (user territory, safe from Claude Code cleanup) and per-project notes in `./private/claude/` (a gitignored project vault). One paragraph of setup gets you the whole system: create those two directories and the files just work.
 

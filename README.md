@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/github/v/release/DazzleML/dazzle-claude-code-config?include_prereleases&label=version&color=blue)](https://github.com/DazzleML/dazzle-claude-code-config/releases) [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0--or--later-green)](LICENSE) [![Changelog](https://img.shields.io/badge/changelog-keep--a--changelog-orange)](CHANGELOG.md) [![Claude Code](https://img.shields.io/badge/for-Claude%20Code-blueviolet)](https://code.claude.com) [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20BSD-lightgrey.svg)](docs/platforms.md)
 
-A curated, working set of **Claude Code** skills, commands, and agents from the DazzleML toolchain — usable directly as a [ccs](https://github.com/DazzleML/dazzle-claude-config) payload repo, or as a grab-bag you copy from by hand.
+A curated, working set of **Claude Code** skills, commands, and agents from the DazzleML toolchain usable directly as a [ccs](https://github.com/DazzleML/dazzle-claude-config) payload repo, or as a grab-bag you copy from by hand.
 
 **The big idea**: configuration sets should be as easy to share, load in, and swap out as tools are in [dazzlecmd](https://github.com/DazzleTools/dazzlecmd) — fork a set, point ccs at it, layer your own private overlay on top, swap sources at will. This repo is the first public set.
 
@@ -22,17 +22,17 @@ A curated, working set of **Claude Code** skills, commands, and agents from the 
 
 | Set | Items |
 |---|---|
-| **The orchestrator** | `dotclaude/CLAUDE.md` — a curated global memory file that **imports your personal sections** (`@~/claude/claude-config/*.md`, seeded with templates) -- you never edit the shared file, so upstream updates merge cleanly; applied `seed-if-absent` |
+| **The orchestrator** | `dotclaude/CLAUDE.md` — a curated global memory file that **imports your personal sections** (`@~/claude/claude-config/*.md`, seeded with templates) -- you never edit the shared file, so upstream updates merge easily; applied `seed-if-absent` |
 | **Skills** (14) | Orient: `familiarize`, `wherearewe`; Design: `dev-workflow-process`, `collabN-local`, `oracle`, `investigate`; Restructure: `merge-3-way-split`, `move-code`; Verify: `test-checklist`, `double-check`; Reflect: `whereweare`; Project setup: `create-project`, `github-issues-setup`, `repokit-setup` |
 | **Commands** (28) | Postmortem family (`postmortem`, `fullpostmortem`, `fullpostmortem-lean`, `minipostmortem`, `contextpostmortem`, `addendum`); git/release (`commit`, `prepcommit`, `version-bump`, `bump-merge-release`, `bump-merge-rel-submod`, `github-release`, `github-release-notes`, `repokit-post`); GitHub (`github-issue`, `github-acceptance-check`); consultation (`collaborate1/2/3`); research (`ask`, `askq`, `longask`, `quick-ask`, `analysis`); capture (`obsidian`, `docidea`); utilities (`check-deps`, `cleanup-priv-claude`) |
 | **Agents** (11) | `oracle`, `brainstorm`, `senior-engineer`, `tester`, `tester-unbounded`, `dwp-background`, `investigate`, `help`, `code-finder`, `project-manager-backlog`, `gpt-codex` |
-| **Hooks** (1) | `tester-unbounded-guard.py` — PreToolUse enforcement backing `tester-unbounded`; the agent **requires** it at `~/.claude/hooks/` (on Windows, put the absolute home path in the agent frontmatter — `~` may not expand in the hook shell) |
+| **Hooks** (1) | `tester-unbounded-guard.py` — PreToolUse enforcement backing `tester-unbounded`; the agent **requires** it at `~/.claude/hooks/` (on Windows, put the absolute home path in the agent frontmatter, as `~` may not expand in the hook shell) |
 | **Scripts** | `dotclaude/scripts/` — async research helpers the `/ask` family invokes (installed by the manifest) |
 | **Settings templates** | `settings-example/` + `userclaude-example/` — see below |
 
 **Conventions these files assume**: durable notes live in `~/claude/` (user territory, safe from Claude Code cleanup) and per-project notes in `./private/claude/` (a gitignored project vault). One paragraph of setup gets you the whole system: create those two directories and the files just work.
 
-**External integrations (optional)**: `collaborate1/2/3` require the open-source [Zen MCP server](https://github.com/BeehiveInnovations/zen-mcp-server) configured with a `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` (names only — bring your own); `collabN-local` is the no-external-API alternative and uses the included `brainstorm` agent as its default consultant. `github-acceptance-check` uses `gh_issue_full.py` from [git-repokit-common](https://github.com/DazzleTools/git-repokit-common) when present, with a plain `gh` fallback. The SPCR/PUVM frameworks referenced by the collaborate family are defined inline in `dev-workflow-process` and `analysis`. The `help` agent optionally uses Zen MCP; `gpt-codex` requires a Codex MCP server (`mcp__codex__*`/`mcp__gpt-codex__*` names only — bring your own setup).
+**External integrations (optional)**: `collaborate1/2/3` require the open-source [PAL MCP (aka Zen MCP) server](https://github.com/BeehiveInnovations/zen-mcp-server) configured with a `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` (names only — bring your own); `collabN-local` is the no-external-API alternative and uses the included `brainstorm` agent as its default consultant. `github-acceptance-check` uses `gh_issue_full.py` from [git-repokit-common](https://github.com/DazzleTools/git-repokit-common) when present, with a plain `gh` fallback. The SPCR/PUVM frameworks referenced by the collaborate family are defined inline in `dev-workflow-process` and `analysis`. The `help` agent optionally uses Zen MCP; `gpt-codex` requires a Codex MCP server (`mcp__codex__*`/`mcp__gpt-codex__*` names only — bring your own setup).
 
 ## How everything fits together
 

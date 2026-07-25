@@ -4,6 +4,11 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.5] - 2026-07-24
+
+### Fixed
+- README wording pass; Zen MCP renamed to PAL MCP (aka Zen MCP)
+
 ## [0.4.4] - 2026-07-24
 
 ### Added
@@ -64,7 +69,8 @@ All notable changes to the public Claude Code config collection. Format follows 
 - First curated seed: 5 skills (`dev-workflow-process`, `double-check`, `test-checklist`, `familiarize`, `oracle`), 8 commands (postmortem family, `commit`, `prepcommit`, `version-bump`), 4 agents (`oracle`, `brainstorm`, `senior-engineer`, `tester`)
 - Working `ccs-manifest.json`, README, GPL-3.0-or-later license
 
-[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.4...HEAD
+[Unreleased]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.5...HEAD
+[0.4.5]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.4...v0.4.5
 [0.4.4]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.3...v0.4.4
 [0.4.3]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/DazzleML/dazzle-claude-code-config/compare/v0.4.1...v0.4.2

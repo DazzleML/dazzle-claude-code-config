@@ -4,6 +4,12 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+### Changed
+- `docs/workflow.md`: the lifecycle gains a re-entrant **Steer** layer (`/whatnext`, `/recap-wherearewe`), the `/measure` and `/rethink` guards inside Design, `/last-mile` as the driver of Gate → Commit → Ship, `/test-mutation` beside `/test-checklist`, and `/obsidian-init` / `/obsidian-update` for the vault. Several of these skills are not yet in this collection; they arrive with the next skill promotion, and until then the page describes the toolkit the collection is converging on.
+
+### Fixed
+- `scripts/repokit-common/generate-backlinks.py` skips any `_links/` directory in a vault, so navigation junctions to other vaults are neither indexed as local notes nor followed into a cycle. Matches the same fix upstream in git-repokit-common.
+
 ## [0.4.7] - 2026-07-25
 
 ### Changed

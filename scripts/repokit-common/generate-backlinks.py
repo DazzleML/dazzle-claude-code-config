@@ -97,7 +97,10 @@ def build_indices(vault_root: Path) -> tuple[dict, dict, dict]:
     # Also map relative paths (e.g. "notes/bugs/filename") to stems
     # so path-prefixed wikilinks like [[notes/bugs/filename|alias]] resolve
     path_to_stem: dict[str, str] = {}
-    for f in sorted(vault_root.rglob('*.md')):
+    # Skip _links/: navigation junctions to sibling vaults. rglob follows
+    # junctions on Windows, so without this the sibling's notes are indexed
+    # as phantom local notes -- and a link cycle never terminates.
+    for f in sorted(p for p in vault_root.rglob('*.md') if '_links' not in p.parts):
         file_index[f.stem] = f
         # Register relative path variants (without .md extension)
         rel = f.relative_to(vault_root).with_suffix('')
@@ -313,7 +316,7 @@ def main():
     if vault_root is None:
         # Fall back to the given path directly
         vault_root = start
-        if not any(vault_root.rglob('*.md')):
+        if not any(p for p in vault_root.rglob('*.md') if '_links' not in p.parts):
             print(f'Error: No .md files found in {vault_root}', file=sys.stderr)
             sys.exit(1)
 

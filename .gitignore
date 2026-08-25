@@ -1,3 +1,6 @@
 .vscode/
 __pycache__/
 *.pyc
+
+# Private knowledge vault -- local-only, never published from this PUBLIC repo
+/private/

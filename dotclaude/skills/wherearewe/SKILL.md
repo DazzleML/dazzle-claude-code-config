@@ -33,9 +33,11 @@ Find and present the current state of a project. This is the "fill me in" skill 
 ls -t private/claude/*whereweare* 2>/dev/null | head -5
 
 # Also check other active projects for cross-project awareness.
-# CLAUDE_CODE_ROOTS: space-separated list of your project root dirs
-# (defaults to ~/code; set it in your shell profile or settings env).
-for root in ${CLAUDE_CODE_ROOTS:-"$HOME/code"}; do
+# CLAUDE_CODE_ROOTS: space-separated list of your project root dirs.
+# Defaults to ~/code and /c/code, so it works unconfigured on a POSIX box
+# and on Windows where projects live under C:\code. Set it in your shell
+# profile or settings env to scan somewhere else instead.
+for root in ${CLAUDE_CODE_ROOTS:-"$HOME/code" /c/code}; do
 for dir in "$root"/*/private/claude "$root"/*/*/private/claude; do
   latest=$(ls -t "$dir"/*whereweare* 2>/dev/null | head -1)
   if [ -n "$latest" ]; then

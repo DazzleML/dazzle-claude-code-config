@@ -60,9 +60,11 @@ We often work across multiple projects simultaneously. Before writing, scan for 
 
 ```bash
 # Check other known project directories for recent WhereWeAre docs.
-# CLAUDE_CODE_ROOTS: space-separated list of your project root dirs
-# (defaults to ~/code; set it in your shell profile or settings env).
-for root in ${CLAUDE_CODE_ROOTS:-"$HOME/code"}; do
+# CLAUDE_CODE_ROOTS: space-separated list of your project root dirs.
+# Defaults to ~/code and /c/code, so it works unconfigured on a POSIX box
+# and on Windows where projects live under C:\code. Set it in your shell
+# profile or settings env to scan somewhere else instead.
+for root in ${CLAUDE_CODE_ROOTS:-"$HOME/code" /c/code}; do
 for dir in "$root"/*/private/claude "$root"/*/*/private/claude; do
   latest=$(ls -t "$dir"/*whereweare* 2>/dev/null | head -1)
   if [ -n "$latest" ]; then

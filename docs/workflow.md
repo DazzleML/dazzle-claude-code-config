@@ -2,6 +2,8 @@
 
 These skills, commands, and agents aren't an alphabetical grab-bag — they're stages of one working trajectory. This page walks the lifecycle; each folder's README covers its members in detail.
 
+> **What this page covers, and what this collection ships.** The lifecycle below is the whole trajectory, including stages driven by skills that are not in this repository yet. Eight are named here and not included: `/last-mile`, `/whatnext`, `/recap-wherearewe`, `/measure`, `/rethink`, `/test-mutation`, `/obsidian-update`, and `/obsidian-init`. Until they land, read those stages as a description of the shape rather than as commands you can run. Everything else named below ships here — as a skill in `dotclaude/skills/` or a command in `dotclaude/commands/`.
+
 ```mermaid
 flowchart LR
     O["Orient<br/>/wherearewe · /familiarize<br/>/analysis"] --> D["Design<br/>/dev-workflow-process · /rethink<br/>collab family"]

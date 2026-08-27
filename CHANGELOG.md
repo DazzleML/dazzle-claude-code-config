@@ -4,11 +4,15 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.8] - 2026-08-27
+
 ### Changed
 - `docs/workflow.md`: the lifecycle gains a re-entrant **Steer** layer (`/whatnext`, `/recap-wherearewe`), the `/measure` and `/rethink` guards inside Design, `/last-mile` as the driver of Gate → Commit → Ship, `/test-mutation` beside `/test-checklist`, and `/obsidian-init` / `/obsidian-update` for the vault. Several of these skills are not yet in this collection; they arrive with the next skill promotion, and until then the page describes the toolkit the collection is converging on.
+- `docs/workflow.md`: the page now says on its own face which skills it names that this collection does not ship yet -- the eight are listed by name, with the note that those stages describe the shape rather than commands a reader can run. The CHANGELOG has carried that caveat since the page was published; a reader arriving at the page itself had no way to see it, and would have been sent to eight commands that are not here.
 
 ### Fixed
 - `scripts/repokit-common/generate-backlinks.py` skips any `_links/` directory in a vault, so navigation junctions to other vaults are neither indexed as local notes nor followed into a cycle. Matches the same fix upstream in git-repokit-common.
+- `dotclaude/skills/wherearewe/SKILL.md` and `whereweare/SKILL.md`: the cross-project scan defaulted to `~/code` alone, so on a machine where projects live elsewhere it found nothing and said nothing -- a silent empty result, not an error. It now defaults to two roots (`~/code` and `/c/code`), covering a POSIX box and a Windows one unconfigured, and `CLAUDE_CODE_ROOTS` still overrides. Measured on a Windows machine: 44 projects found where the old default found none.
 
 ## [0.4.7] - 2026-07-25
 

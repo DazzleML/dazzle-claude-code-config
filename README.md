@@ -36,7 +36,7 @@ A curated, working set of **Claude Code** skills, commands, and agents from the 
 
 ## How everything fits together
 
-The toolkit is a **workflow**, not a grab-bag: orient (`/familiarize`) → design (`/dev-workflow-process`, the collab family) → track/restructure → verify (`/test-checklist` + tester agents) → gate (`/github-acceptance-check`, `/prepcommit`) → `/commit` → ship → reflect (the postmortem family), with `/double-check` guarding outward comms. **[docs/workflow.md](docs/workflow.md)** walks the full trajectory; each of [`skills/`](dotclaude/skills/), [`commands/`](dotclaude/commands/), and [`agents/`](dotclaude/agents/) has a README mapping its members to the stages.
+The toolkit is a **workflow**, not a grab-bag: orient (`/familiarize`) → design (`/dev-workflow-process`, the collab family) → track/restructure → implement → verify (`/test-checklist` + tester agents) → gate (`/github-acceptance-check`, `/prepcommit`) → `/commit` → ship → reflect (the postmortem family), with `/double-check` guarding outward comms. **[docs/workflow.md](docs/workflow.md)** walks the full trajectory; each of [`skills/`](dotclaude/skills/), [`commands/`](dotclaude/commands/), and [`agents/`](dotclaude/agents/) has a README mapping its members to the stages.
 
 ## Use it
 

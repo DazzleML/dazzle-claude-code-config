@@ -2,7 +2,7 @@
 
 | Doc | What it covers |
 |---|---|
-| [workflow.md](workflow.md) | How the toolkit flows together — the orient → design → verify → gate → commit → ship → reflect lifecycle, the `/double-check` claim-verifier, and the two-session "librarian" pattern |
+| [workflow.md](workflow.md) | How the toolkit flows together — the orient → design → track → implement → verify → gate → commit → ship → reflect lifecycle, its two stage drivers (`/first-mile`, `/last-mile`) and the whole-run driver (`/gauntlet`), the `/measure` · `/poc` · `/double-check` guards, and the two-session "librarian" pattern |
 | [project-structure.md](project-structure.md) | The repeatable project shape the skills assume — the `private/` vault (`dz private-init`), the repokit-common subtree, the dazzlecmd-first graduation path, task tracking, and the creation process |
 | [setup.md](setup.md) | The exhaustive install walk — Claude Code itself, ccs, personalization, companion plugins (session-logger, csb), hooks, verification, multi-machine rollout |
 | [platforms.md](platforms.md) | Per-OS support status and the deliberate cross-platform design choices |

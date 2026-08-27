@@ -4,6 +4,12 @@ All notable changes to the public Claude Code config collection. Format follows 
 
 ## [Unreleased]
 
+## [0.4.9] - 2026-08-27
+
+### Changed
+- `docs/workflow.md`: the lifecycle gains the design half's driver. `/first-mile` now brackets Orient → Design → Track the way `/last-mile` brackets Gate → Commit → Ship, and the page says what it does: a contract question first, the free checks before the analysis, a killing observation and an evidence level per candidate, at most one proof-of-concept, one gate, a provenance record. An **Implement** stage (`/implement-frame`) is added between Track and Verify -- the one stage neither driver performs, and the page had no name for it. `/poc` joins `/measure` and `/rethink` as the third guard, for proposals that do not exist yet. `/gauntlet` is drawn over the whole run and described: the driver of drivers, on-disk ledger, attended and unattended modes, human-started only. The caveat above the diagram grows from eight not-shipped names to twelve; those stages still describe the shape until the skills land. `/docidea` notes its newer name, `/obsidian-idea`.
+- `docs/README.md` and the top-level README: the lifecycle summary includes the implement stage; the docs index names the drivers and guards the page now covers.
+
 ## [0.4.8] - 2026-08-27
 
 ### Changed
